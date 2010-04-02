@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="which_contacts">
+    	<item>Calls From All Callers</item>
+    	<item>Only My Contacts</item>
+    	<item>Only Starred</item>
+   	</string-array>
+	<string-array name="which_contacts_values">
+    	<item>all</item>
+       	<item>contacts</item>
+    	<item>starred</item>
+	</string-array>
+</resources>
