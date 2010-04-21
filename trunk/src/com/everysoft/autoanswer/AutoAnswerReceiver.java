@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.media.AudioManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract.PhoneLookup;
 import android.telephony.TelephonyManager;
-import android.view.KeyEvent;
 
 public class AutoAnswerReceiver extends BroadcastReceiver {
 	@Override
@@ -36,29 +34,10 @@ public class AutoAnswerReceiver extends BroadcastReceiver {
 					return;
 				}
 			}
-
-			// Let the phone ring for approximately two seconds
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// We don't really care
-			}
-
-			// Simulate a press of the headset button to pick up the call
-			Intent new_intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
-			new_intent.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_HEADSETHOOK));
-			context.sendOrderedBroadcast(new_intent, null);
-
-			// Enable the speakerphone
-			if (prefs.getBoolean("use_speakerphone", false)) {
-				enableSpeakerPhone(context);
-			}
-		}
-	}
-
-	private void enableSpeakerPhone(Context context) {
-		AudioManager audio_manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-		audio_manager.setSpeakerphoneOn(true);
+			
+			// Call a service, since this could take a few seconds
+			context.startService(new Intent(context, AutoAnswerIntentService.class));
+		}		
 	}
 
 	// returns -1 if not in contact list, 0 if not starred, 1 if starred
