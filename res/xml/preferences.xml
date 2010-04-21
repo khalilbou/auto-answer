@@ -4,6 +4,9 @@
 	<ListPreference android:key="which_contacts" android:title="@string/which_contacts"
 		android:entries="@array/which_contacts"	android:entryValues="@array/which_contacts_values"
 		android:defaultValue="all" />
+	<ListPreference android:key="delay" android:title="@string/delay"
+		android:entries="@array/delay"	android:entryValues="@array/delay_values"
+		android:defaultValue="2" />
 	<com.everysoft.autoanswer.preference.AutoAnswerDialogPreference
 		android:key="about" android:title="@string/about_title" android:src="@drawable/icon"
 		android:dialogTitle="@string/about_title" android:dialogMessage="@string/about_message"
