@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="enabled">Enabled?</string>
-	<string name="use_speakerphone">Use Speakerphone?</string>
 	<string name="which_contacts">Answer Which Calls?</string>
 	<string name="delay">Delay Before Answer?</string>
+	<string name="headset_only">Only Using Headset?</string>
+	<string name="use_speakerphone">Force Speakerphone?</string>
+	<string name="no_second_call">Ignore Second Call?</string>
     <string name="app_name">AutoAnswer</string>
 	<string name="about_title">About</string>
 	<string name="about_message">AutoAnswer Version 1.1\nCopyright (c) 2010 EverySoft\n\nA simple Android application that automatically answers incoming calls.\n\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.\n\nChanges:\n1.1 - added configurable delay before answer\n\n1.0 - initial release</string>
