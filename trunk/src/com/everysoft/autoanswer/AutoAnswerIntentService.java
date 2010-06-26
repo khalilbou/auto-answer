@@ -21,6 +21,10 @@ public class AutoAnswerIntentService extends IntentService {
 		
 		// Load preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		BluetoothHeadset bh = null;
+		if (prefs.getBoolean("headset_only", false)) {
+			bh = new BluetoothHeadset(this, null);
+		}
 		
 		// Let the phone ring for a set delay
 		try {
@@ -29,12 +33,21 @@ public class AutoAnswerIntentService extends IntentService {
 			// We don't really care
 		}
 
+		// Check headset status right before picking up the call
+		if (prefs.getBoolean("headset_only", false) && bh != null) {
+			if (bh.getState() != BluetoothHeadset.STATE_CONNECTED) {
+				bh.close();
+				return;
+			}
+			bh.close();
+		}
+		
 		// Make sure the phone is still ringing
 		TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		if (tm.getCallState() != TelephonyManager.CALL_STATE_RINGING) {
 			return;
 		}
-			
+		
 		// Simulate a press of the headset button to pick up the call
 		Intent button_down = new Intent(Intent.ACTION_MEDIA_BUTTON);		
 		button_down.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_HEADSETHOOK));

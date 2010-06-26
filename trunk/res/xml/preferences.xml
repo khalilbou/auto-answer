@@ -7,6 +7,7 @@
 		android:entries="@array/delay"	android:entryValues="@array/delay_values"
 		android:defaultValue="2" />
 	<CheckBoxPreference android:key="use_speakerphone" android:title="@string/use_speakerphone"/>
+	<CheckBoxPreference android:key="headset_only" android:title="@string/headset_only"/>
 	<CheckBoxPreference android:key="no_second_call" android:title="@string/no_second_call"/>
 	<com.everysoft.autoanswer.preference.AutoAnswerDialogPreference
 		android:key="about" android:title="@string/about_title" android:src="@drawable/icon"
