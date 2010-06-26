@@ -36,10 +36,13 @@ public class AutoAnswerIntentService extends IntentService {
 		}
 			
 		// Simulate a press of the headset button to pick up the call
-		Intent new_intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
-		new_intent.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_HEADSETHOOK));
-		context.sendOrderedBroadcast(new_intent, null);
-
+		Intent button_down = new Intent(Intent.ACTION_MEDIA_BUTTON);		
+		button_down.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_HEADSETHOOK));
+		context.sendOrderedBroadcast(button_down, null);
+		Intent button_up = new Intent(Intent.ACTION_MEDIA_BUTTON);		
+		button_up.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_HEADSETHOOK));
+		context.sendOrderedBroadcast(button_up, null);
+		
 		// Enable the speakerphone
 		if (prefs.getBoolean("use_speakerphone", false)) {
 			enableSpeakerPhone(context);

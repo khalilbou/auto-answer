@@ -3,7 +3,6 @@
 	<string name="enabled">Enabled?</string>
 	<string name="which_contacts">Answer Which Calls?</string>
 	<string name="delay">Delay Before Answer?</string>
-	<string name="headset_only">Only Using Headset?</string>
 	<string name="use_speakerphone">Force Speakerphone?</string>
 	<string name="no_second_call">Ignore Second Call?</string>
     <string name="app_name">AutoAnswer</string>
