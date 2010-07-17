@@ -16,6 +16,11 @@
         		<action android:name="android.intent.action.PHONE_STATE" />
         	</intent-filter>
         </receiver>
+        <receiver android:name=".AutoAnswerBootReceiver" android:enabled="true">
+        	<intent-filter>
+        		<action android:name="android.intent.action.BOOT_COMPLETED" />
+        	</intent-filter>
+        </receiver>
         <service android:name="AutoAnswerIntentService" />
     </application>
     <uses-sdk android:minSdkVersion="6" />
@@ -23,4 +28,5 @@
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest> 
